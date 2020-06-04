@@ -5,6 +5,7 @@ import com.company.limsbackend.persistence.repository.PersonRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -28,5 +29,10 @@ public class PersonService {
         } else {
             return personRepository.save(submitter);
         }
+    }
+
+    public Person getPerson(Long personId) {
+        return personRepository.findById(personId)
+                .orElseThrow(() -> new ObjectNotFoundException(personId, Person.class.getName()));
     }
 }

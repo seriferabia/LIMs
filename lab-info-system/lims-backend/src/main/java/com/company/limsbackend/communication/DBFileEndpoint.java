@@ -24,7 +24,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class DBFileEndpoint {
     private static final Logger logger = LoggerFactory.getLogger(DBFileEndpoint.class);
-
     private final DBFileStorageService storageService;
 
 

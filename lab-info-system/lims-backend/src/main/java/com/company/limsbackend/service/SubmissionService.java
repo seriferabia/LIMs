@@ -44,7 +44,7 @@ public class SubmissionService {
         }
     }
 
-    public Submission getFile(Long submissionId) {
+    public Submission getSubmission(Long submissionId) {
         return submissionRepository.findById(submissionId)
                 .orElseThrow(() -> new ObjectNotFoundException("submissionId", Submission.class.getName()));
     }

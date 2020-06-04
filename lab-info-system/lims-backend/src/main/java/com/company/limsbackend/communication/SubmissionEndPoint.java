@@ -44,6 +44,11 @@ public class SubmissionEndPoint {
 
     }
 
+    @GetMapping("/id/{id}")
+    public Submission getSubmission(@PathVariable Long id){
+        return submissionService.getSubmission(id);
+    }
+
     private String getDownloadUri(Submission submission, String fileType) {
         if (fileType.equalsIgnoreCase("pdf")) {
             return ServletUriComponentsBuilder.fromCurrentContextPath()

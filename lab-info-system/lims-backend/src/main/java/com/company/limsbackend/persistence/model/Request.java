@@ -30,8 +30,8 @@ public class Request {
     private boolean bioInfoRequest;
     private String read1Structure;
     private String read2Structure;
-    private String BC1Structure;
-    private String BC2Structure;
+    private String bc1Structure;
+    private String bc2Structure;
     private int numberOfLanes;
     private String seqPrimer;
     private String comments;

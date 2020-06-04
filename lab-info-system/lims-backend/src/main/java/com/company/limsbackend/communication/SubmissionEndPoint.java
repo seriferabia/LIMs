@@ -21,17 +21,11 @@ public class SubmissionEndPoint {
     private final SubmissionService submissionService;
 
     @PostMapping("/submit")
-    public SubmissionResponse submit(String person,
+    public SubmissionResponse submit(String submitterData,
                                      @RequestParam("exlFile") MultipartFile excelFile,
                                      @RequestParam("pdfFile") MultipartFile pdfFile) {
-        Person submitter = null;
-        try {
-            submitter = new ObjectMapper().readValue(person, Person.class);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
 
-        Submission submission = submissionService.saveSubmission(submitter, excelFile, pdfFile);
+        Submission submission = submissionService.saveSubmission(submitterData, excelFile, pdfFile);
 
         return SubmissionResponse.builder()
                 .submissionId(submission.getId())
@@ -45,7 +39,7 @@ public class SubmissionEndPoint {
     }
 
     @GetMapping("/id/{id}")
-    public Submission getSubmission(@PathVariable Long id){
+    public Submission getSubmission(@PathVariable Long id) {
         return submissionService.getSubmission(id);
     }
 

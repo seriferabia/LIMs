@@ -58,6 +58,4 @@ public class Sample {
     private DBFile bioAnalysisImage;
 
 
-
-
 }

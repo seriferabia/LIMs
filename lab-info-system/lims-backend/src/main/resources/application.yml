@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:mysql://localhost/demolims?useSSL=false
-    username: serife
-    password: tonguc
+    username: ${MY_DB_USER}
+    password: ${MY_DB_PASSWORD}
 
   jpa:
     hibernate:
